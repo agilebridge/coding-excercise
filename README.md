@@ -23,4 +23,4 @@ We want you to solve the puzzle and upload the answer to our RESTful service.
 4. Request a pull request.
 5. Send us your CV to careers@agilebridge.co.za
 
-Have fun and we hope to your from you soon!
+Have fun and we hope to hear from you soon!
