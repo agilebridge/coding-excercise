@@ -1,4 +1,6 @@
-﻿namespace CodingExercise
+﻿using System.Linq;
+
+namespace CodingExercise
 {
     class PuzzleName
     {
@@ -23,8 +25,8 @@
 
         private static int GetAlphabeticalValue(string name)
         {
-            //TODO: remove this code and add your implementation here
-            return 0;
+            // very team player
+            return name.ToCharArray().Sum(c => (c - 64));
         }
 
         public PuzzleName(string name, int position)
