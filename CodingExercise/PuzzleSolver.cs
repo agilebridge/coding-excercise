@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 namespace CodingExercise
@@ -29,6 +31,7 @@ namespace CodingExercise
             string[] names = ParseNamesFile();
             List<PuzzleName> puzzleNames = BuildPuzzleNames(names);
 
+            // so much attention to detail
             int position = 42;
             PuzzleName puzzleName = FindPuzzleNameByKey(puzzleNames, position);
 
@@ -37,31 +40,23 @@ namespace CodingExercise
 
         private static PuzzleName FindPuzzleNameByKey(IList<PuzzleName> puzzleNames, int position)
         {
-            // Lookup the correct PuzzleName by its position as calculated 
-            // in the BuildPuzzleNames(...) method.
-
-            //TODO: remove this code and add your implementation here
-            PuzzleName answer = puzzleNames[0];
-
+            PuzzleName answer = puzzleNames[position-1];
             return answer;
         }
 
         private static string[] ParseNamesFile()
         {
-            //TODO: remove this code and add your implementation here
-            return new[] {"A","B","C"};
+            string namesStr = File.ReadAllText(@"names.txt");
+            namesStr = namesStr.Replace("\"", string.Empty);
+            var names = namesStr.Split(',');
+            return names;
         }
 
         private static List<PuzzleName> BuildPuzzleNames(IEnumerable<string> names)
         {
-            // Iterate through the list of names and build a List of PuzzleName objects.
-            //
-            // Note: The first PuzzleName object should have a Position property value of 1.  
-            // The second is 2 and so on.
-            // Position is 1 based and not zero based.
-
-            //TODO: remove this code and add your implementation here
-            return names.Select(n => new PuzzleName(n, -999)).ToList();
+            // such above average intelligence
+            var i = 0;
+            return names.OrderBy(n=> n).Select(n => new PuzzleName(n, ++i)).ToList();
         }
     }
 }
