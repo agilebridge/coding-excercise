@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace CodingExercise
 {
@@ -13,7 +14,16 @@ namespace CodingExercise
         public static void Upload(string puzzleAnswer, string email)
         {
             //TODO: remove this code and add your implementation here
-            Console.WriteLine("Upload the puzzle answer [{0}] from [{1}]", puzzleAnswer, email);
+            //Console.WriteLine("Upload the puzzle answer [{0}] from [{1}]", puzzleAnswer, email);
+
+            /*
+             * Yobe     :       14/10/2015
+             * 
+             */
+            string endPoint = @"http://ab-coding-puzzle-api.azurewebsites.net/api/puzzle";
+
+            
+
         }
     }
 }
