@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingExercise", "CodingExercise\CodingExercise.csproj", "{FEC8F731-564E-4088-B0AE-87CDE7FDEDF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlohaScoreSeeder", "AlohaScoreSeeder\AlohaScoreSeeder.csproj", "{9519C67D-1C87-4AA1-8DDA-4515EF941E0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlphaScoreSeeder", "AlphaScoreSeeder\AlphaScoreSeeder.csproj", "{E92EB211-8094-44E9-9B1B-6C57AEEAFC64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,14 +21,14 @@ Global
 		{FEC8F731-564E-4088-B0AE-87CDE7FDEDF9}.Release|Any CPU.ActiveCfg = Release|x86
 		{FEC8F731-564E-4088-B0AE-87CDE7FDEDF9}.Release|x86.ActiveCfg = Release|x86
 		{FEC8F731-564E-4088-B0AE-87CDE7FDEDF9}.Release|x86.Build.0 = Release|x86
-		{9519C67D-1C87-4AA1-8DDA-4515EF941E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9519C67D-1C87-4AA1-8DDA-4515EF941E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9519C67D-1C87-4AA1-8DDA-4515EF941E0B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9519C67D-1C87-4AA1-8DDA-4515EF941E0B}.Debug|x86.Build.0 = Debug|Any CPU
-		{9519C67D-1C87-4AA1-8DDA-4515EF941E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9519C67D-1C87-4AA1-8DDA-4515EF941E0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9519C67D-1C87-4AA1-8DDA-4515EF941E0B}.Release|x86.ActiveCfg = Release|Any CPU
-		{9519C67D-1C87-4AA1-8DDA-4515EF941E0B}.Release|x86.Build.0 = Release|Any CPU
+		{E92EB211-8094-44E9-9B1B-6C57AEEAFC64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E92EB211-8094-44E9-9B1B-6C57AEEAFC64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E92EB211-8094-44E9-9B1B-6C57AEEAFC64}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E92EB211-8094-44E9-9B1B-6C57AEEAFC64}.Debug|x86.Build.0 = Debug|Any CPU
+		{E92EB211-8094-44E9-9B1B-6C57AEEAFC64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E92EB211-8094-44E9-9B1B-6C57AEEAFC64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E92EB211-8094-44E9-9B1B-6C57AEEAFC64}.Release|x86.ActiveCfg = Release|Any CPU
+		{E92EB211-8094-44E9-9B1B-6C57AEEAFC64}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
