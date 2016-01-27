@@ -55,10 +55,10 @@ namespace CodingExercise
         {
             string[] names = ParseNamesFile();
 
+            List<PuzzleName> puzzleNames = BuildPuzzleNames(names);
+
             //Temp for testing
             return "test";
-
-            List<PuzzleName> puzzleNames = BuildPuzzleNames(names);
 
             int position = 42;
             PuzzleName puzzleName = FindPuzzleNameByKey(puzzleNames, position);
@@ -92,7 +92,6 @@ namespace CodingExercise
             foreach (string name in sNames)
             {
                 string cleanedName = name.Replace(@"""","");
-                Console.WriteLine(cleanedName);
                 tempNames.Add(cleanedName);
             }
 
@@ -108,8 +107,23 @@ namespace CodingExercise
             // The second is 2 and so on.
             // Position is 1 based and not zero based.
 
-            //TODO: remove this code and add your implementation here
-            return names.Select(n => new PuzzleName(n, -999)).ToList();
+            List<PuzzleName> tempList = names.Select(n => new PuzzleName(n, -999)).ToList();
+
+            //Sort the list using the name Variable
+            tempList = tempList.OrderBy(pn => pn.Name).ToList<PuzzleName>();
+
+            //Final returned List
+            List<PuzzleName> returnList = new List<PuzzleName>();
+
+            //Assign Position values
+            PuzzleName[] pArray = tempList.ToArray<PuzzleName>();
+            for (int i = 0; i < pArray.Length; i++)
+            {
+                PuzzleName pName = pArray[i];
+                returnList.Add(new PuzzleName(pName.Name, i + 1));
+            }      
+
+            return returnList;
         }
     }
 }
