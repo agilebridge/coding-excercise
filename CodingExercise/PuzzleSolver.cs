@@ -57,11 +57,11 @@ namespace CodingExercise
 
             List<PuzzleName> puzzleNames = BuildPuzzleNames(names);
 
-            //Temp for testing
-            return "test";
-
             int position = 42;
             PuzzleName puzzleName = FindPuzzleNameByKey(puzzleNames, position);
+
+            //Temp for testing
+            return "test";
 
             return puzzleName.NameScore;
         }
@@ -71,8 +71,7 @@ namespace CodingExercise
             // Lookup the correct PuzzleName by its position as calculated 
             // in the BuildPuzzleNames(...) method.
 
-            //TODO: remove this code and add your implementation here
-            PuzzleName answer = puzzleNames[0];
+            PuzzleName answer = puzzleNames.First<PuzzleName>(pN => pN.Position == position);
 
             return answer;
         }
