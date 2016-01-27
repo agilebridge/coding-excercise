@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 
 namespace CodingExercise
@@ -24,9 +27,37 @@ namespace CodingExercise
         /// 
         /// </summary>
         /// <returns>The answer to the puzzle</returns>
+        /// 
+
+        #region ResourceLocations
+
+        ///Gets the location of the names.txt from configuration
+        private static string NameFileLocation
+        {
+            get
+            {
+                return Convert.ToString(ConfigurationManager.AppSettings["NameFileLocation"]);
+            }
+        }
+
+        //Gets the location of the ScoreConfigFile from configuration
+        private static string ScoreConfigLocation
+        {
+            get
+            {
+                return Convert.ToString(ConfigurationManager.AppSettings["AlphaScoreConfig"]);
+            }
+        }
+
+        #endregion
+
         public static string Solve()
         {
             string[] names = ParseNamesFile();
+
+            //Temp for testing
+            return "test";
+
             List<PuzzleName> puzzleNames = BuildPuzzleNames(names);
 
             int position = 42;
@@ -48,8 +79,25 @@ namespace CodingExercise
 
         private static string[] ParseNamesFile()
         {
-            //TODO: remove this code and add your implementation here
-            return new[] {"A","B","C"};
+            //Read the raw fileContent. Reference the property containing the Names.txt file location
+            string rawContent = File.ReadAllText(NameFileLocation);
+
+            //Get the array by splitting the content by ","
+            string[] sNames = rawContent.Split(',');
+
+            //Placeholder list for stripping of Quotations because we cannot alter vbariables in a foreach loop
+            List<string> tempNames = new List<string>();
+
+            //strip the quotations
+            foreach (string name in sNames)
+            {
+                string cleanedName = name.Replace(@"""","");
+                Console.WriteLine(cleanedName);
+                tempNames.Add(cleanedName);
+            }
+
+            //return the Array of strings
+            return tempNames.ToArray<string>();
         }
 
         private static List<PuzzleName> BuildPuzzleNames(IEnumerable<string> names)
