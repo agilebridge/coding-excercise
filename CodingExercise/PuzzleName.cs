@@ -40,6 +40,10 @@
         /// <returns></returns>
         private static int GetSingleAlphaScore(char c)
         {
+
+            //Do a quick calculation to the find the value value from the character.
+            //This can be replaced with a configurable scoring mechanism when you can customize how 
+            //scores are calculated, but this will do for now.
             int score = char.ToUpper(c) - 64;
             return score;
         }

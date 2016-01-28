@@ -60,9 +60,6 @@ namespace CodingExercise
             int position = 42;
             PuzzleName puzzleName = FindPuzzleNameByKey(puzzleNames, position);
 
-            //Temp for testing
-            return "test";
-
             return puzzleName.NameScore;
         }
 
