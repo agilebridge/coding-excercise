@@ -10,7 +10,7 @@ namespace CodingExercise
             string puzzleAnswer = PuzzleSolver.Solve();
 
             // Step 2 - Upload answer to Agile Bridge's REST API
-            PuzzleApiClient.Upload(puzzleAnswer, "your email address here");
+            PuzzleApiClient.Upload(puzzleAnswer, @"StephenDPacey@gmail.com");
 
             Console.WriteLine("Press enter to continue...");
             Console.ReadLine();

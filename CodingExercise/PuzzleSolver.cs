@@ -1,4 +1,7 @@
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 
 namespace CodingExercise
@@ -24,9 +27,34 @@ namespace CodingExercise
         /// 
         /// </summary>
         /// <returns>The answer to the puzzle</returns>
+        /// 
+
+        #region ResourceLocations
+
+        ///Gets the location of the names.txt from configuration
+        private static string NameFileLocation
+        {
+            get
+            {
+                return Convert.ToString(ConfigurationManager.AppSettings["NameFileLocation"]);
+            }
+        }
+
+        //Gets the location of the ScoreConfigFile from configuration
+        private static string ScoreConfigLocation
+        {
+            get
+            {
+                return Convert.ToString(ConfigurationManager.AppSettings["AlphaScoreConfig"]);
+            }
+        }
+
+        #endregion
+
         public static string Solve()
         {
             string[] names = ParseNamesFile();
+
             List<PuzzleName> puzzleNames = BuildPuzzleNames(names);
 
             int position = 42;
@@ -40,16 +68,32 @@ namespace CodingExercise
             // Lookup the correct PuzzleName by its position as calculated 
             // in the BuildPuzzleNames(...) method.
 
-            //TODO: remove this code and add your implementation here
-            PuzzleName answer = puzzleNames[0];
+            //Do a linq query to get the puzzel name by it's position property
+            PuzzleName answer = puzzleNames.First<PuzzleName>(pN => pN.Position == position);
 
             return answer;
         }
 
         private static string[] ParseNamesFile()
         {
-            //TODO: remove this code and add your implementation here
-            return new[] {"A","B","C"};
+            //Read the raw fileContent. Reference the property containing the Names.txt file location
+            string rawContent = File.ReadAllText(NameFileLocation);
+
+            //Get the array by splitting the content by ","
+            string[] sNames = rawContent.Split(',');
+
+            //Placeholder list for stripping of Quotations because we cannot alter variables in a foreach loop
+            List<string> tempNames = new List<string>();
+
+            //strip the quotations
+            foreach (string name in sNames)
+            {
+                string cleanedName = name.Replace(@"""","");
+                tempNames.Add(cleanedName);
+            }
+
+            //return the Array of strings
+            return tempNames.ToArray<string>();
         }
 
         private static List<PuzzleName> BuildPuzzleNames(IEnumerable<string> names)
@@ -60,8 +104,23 @@ namespace CodingExercise
             // The second is 2 and so on.
             // Position is 1 based and not zero based.
 
-            //TODO: remove this code and add your implementation here
-            return names.Select(n => new PuzzleName(n, -999)).ToList();
+            List<PuzzleName> tempList = names.Select(n => new PuzzleName(n, -999)).ToList();
+
+            //Sort the list using the name Variable
+            tempList = tempList.OrderBy(pn => pn.Name).ToList<PuzzleName>();
+
+            //Final returned List
+            List<PuzzleName> returnList = new List<PuzzleName>();
+
+            //Assign Position values
+            PuzzleName[] pArray = tempList.ToArray<PuzzleName>();
+            for (int i = 0; i < pArray.Length; i++)
+            {
+                PuzzleName pName = pArray[i];
+                returnList.Add(new PuzzleName(pName.Name, i + 1));
+            }      
+
+            return returnList;
         }
     }
 }

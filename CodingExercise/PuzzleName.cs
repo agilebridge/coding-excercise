@@ -23,8 +23,29 @@
 
         private static int GetAlphabeticalValue(string name)
         {
-            //TODO: remove this code and add your implementation here
-            return 0;
+            int score = 0;
+
+            foreach (char character in name)
+            {
+                score = score + GetSingleAlphaScore(character);
+            }
+
+            return score;
+        }
+
+        /// <summary>
+        /// Calculate the character index and return it
+        /// </summary>
+        /// <param name="c">Character to calcualte</param>
+        /// <returns></returns>
+        private static int GetSingleAlphaScore(char c)
+        {
+
+            //Do a quick calculation to the find the value value from the char input.
+            //This can be replaced with a configurable scoring mechanism where you can customize how 
+            //scores are calculated, but this will do for now.
+            int score = char.ToUpper(c) - 64;
+            return score;
         }
 
         public PuzzleName(string name, int position)
