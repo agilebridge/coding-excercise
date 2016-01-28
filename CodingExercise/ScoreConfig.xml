@@ -1,5 +1,5 @@
 <!--
-Currently unused. Can be added im later and used in the app to customise how names are scored/
+Currently unused. Can be added in later and used in the app to customise how names are scored
 -->
 <?xml version="1.0" encoding="utf-8"?>
 <AlphaScoreConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">

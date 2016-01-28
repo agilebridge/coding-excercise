@@ -68,6 +68,7 @@ namespace CodingExercise
             // Lookup the correct PuzzleName by its position as calculated 
             // in the BuildPuzzleNames(...) method.
 
+            //Do a linq query to get the puzzel name by it's position property
             PuzzleName answer = puzzleNames.First<PuzzleName>(pN => pN.Position == position);
 
             return answer;
@@ -81,7 +82,7 @@ namespace CodingExercise
             //Get the array by splitting the content by ","
             string[] sNames = rawContent.Split(',');
 
-            //Placeholder list for stripping of Quotations because we cannot alter vbariables in a foreach loop
+            //Placeholder list for stripping of Quotations because we cannot alter variables in a foreach loop
             List<string> tempNames = new List<string>();
 
             //strip the quotations

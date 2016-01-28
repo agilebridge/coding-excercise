@@ -25,7 +25,13 @@ namespace CodingExercise
         //Name of the endpoint to upload the puzzle answer to
         private const string resource = @"api/puzzle";
          
-           
+        //To upload the puzzel result we wil use RestSharp. It's a rest client that I have worked with previously
+
+        /// <summary>
+        /// Uploads the puzzel answer to the Agile Bridge Puzzel endpoint
+        /// </summary>
+        /// <param name="puzzleAnswer">Your Puzzel answer</param>
+        /// <param name="email">Your email address</param>
         public static void Upload(string puzzleAnswer, string email)
         {
             Console.WriteLine("Upload the puzzle answer [{0}] from [{1}]", puzzleAnswer, email);
@@ -61,6 +67,7 @@ namespace CodingExercise
         }
     }
 
+    //Helper class for RestSharp response reserialization
     public class PuzzelPostResult
     {
         public bool Success { get; set; }
